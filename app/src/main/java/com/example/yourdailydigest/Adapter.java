@@ -93,8 +93,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     public String getCountry(){
-        Locale locale = Locale.getDefault();
-        String country = locale.getCountry();
+        //Locale locale = Locale.getDefault();
+        //String country = locale.getCountry();
+        String country = "FR";
         return country.toLowerCase();
     }
 

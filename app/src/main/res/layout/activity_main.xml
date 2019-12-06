@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:text="Your Daily Digest"
         android:textColor="@color/black"
+        android:fontFamily="bla"
         android:textSize="20sp"
         android:background="@color/grey"
         android:padding="10dp"
@@ -35,6 +36,7 @@
             android:hint="Rechercher"
             android:textColor="@color/grey"
             android:textColorHint="@color/grey"
+            android:fontFamily="sans-serif-black"
             android:padding="10dp"
             android:layout_column="0"
             android:layout_columnWeight="1"
@@ -55,13 +57,17 @@
     </GridLayout>
 
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:id="@+id/recyclerView"/>
+        android:id="@+id/swipeRefresh">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:id="@+id/recyclerView"/>
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>
