@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:text="Your Daily Digest"
         android:textColor="@color/black"
-        android:fontFamily="bla"
-        android:textSize="20sp"
+        android:fontFamily="cursive"
+        android:textSize="23sp"
         android:background="@color/grey"
         android:padding="10dp"
         android:textAlignment="center"/>
