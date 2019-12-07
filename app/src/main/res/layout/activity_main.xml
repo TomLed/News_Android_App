@@ -10,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your Daily Digest"
-        android:textColor="@color/black"
+        android:textColor="#F30F0118"
         android:fontFamily="cursive"
-        android:textSize="23sp"
+        android:textSize="28sp"
         android:background="@color/grey"
-        android:padding="10dp"
+        android:paddingTop="10dp"
         android:textAlignment="center"/>
 
     <GridLayout
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:background="@drawable/black_background"
+            android:background="@android:color/transparent"
             android:hint="Rechercher"
             android:textColor="@color/grey"
             android:textColorHint="@color/grey"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_row="0"
             android:layout_column="1"
-            android:background="@drawable/black_background"
+            android:background="@android:color/transparent"
             android:drawableRight="@drawable/ic_search_black_24dp"
             android:paddingRight="20dp" />
 
