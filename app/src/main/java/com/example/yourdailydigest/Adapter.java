@@ -1,6 +1,7 @@
 package com.example.yourdailydigest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,31 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
-        Articles a = articles.get(position);
+        final Articles a = articles.get(position);
+
+        String imageSource = a.getUrlToImage();
+        String url = a.getUrl();
+
+        Picasso.with(context).load(imageSource).into(holder.imageView);
+
         holder.tvTitle.setText(a.getTitle());
         holder.tvSource.setText(a.getSource().getName());
         holder.tvDate.setText("\u2022"+dateTime(a.getPublishedAt()));
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("title", a.getTitle());
+                intent.putExtra("source", a.getSource().getName());
+                intent.putExtra("author", a.getAuthor());
+                intent.putExtra("date", dateTime(a.getPublishedAt()));
+                intent.putExtra("description", a.getDescription());
+                intent.putExtra("url", a.getUrl());
+                intent.putExtra("imageSource", a.getUrlToImage());
+                context.startActivity(intent);
+            }
+        });
 
         String imageUrl = a.getUrlToImage();
 
