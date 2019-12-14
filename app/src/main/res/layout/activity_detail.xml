@@ -112,7 +112,7 @@
                     android:fontFamily="sans-serif-black"
                     android:gravity="center"
                     android:padding="12dp"
-                    android:text="Lire la suite.."
+                    android:text="Lire la suite..."
                     android:textColor="@color/white"
                     android:textSize="10dp"/>
 
