@@ -10,11 +10,14 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yourdailydigest.ApiCLient;
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.all:
-                Toast.makeText(this, "Source: A la Une", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Source: Tout", Toast.LENGTH_SHORT).show();
                 swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
@@ -62,10 +65,11 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                     @Override
                     public void onRefresh() {
-                        retrieveJson("google-news-fr", "",country,API_KEY);
+                        retrieveJson(sources, "",country,API_KEY);
                     }
                 });
-                retrieveJson("google-news-fr","", country, API_KEY);
+                retrieveJson(sources,"", country, API_KEY);
+                return true;
             case R.id.leMonde:
                 Toast.makeText(this, "Source: Le Monde", Toast.LENGTH_SHORT).show();
                 sources = "le-monde";
@@ -154,7 +158,19 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
 
+        //allow to use the key enter to search
 
+        etQuery.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    // Your piece of code on keyboard search click
+                    btSearch.callOnClick();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         btSearch.setOnClickListener(new View.OnClickListener() {
             @Override

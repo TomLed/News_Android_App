@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/all"
-        android:title="A la une"/>
+        android:title="Tout"/>
 
     <item
         android:id="@+id/GoogleNews"
