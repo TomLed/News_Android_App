@@ -3,10 +3,14 @@ package com.example.yourdailydigest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     WebView webView;
     ImageView imageView;
     TextView tvTitle, tvSource, tvDate, tvDesc;
+    Button btUrl;
 
 
     @Override
@@ -31,14 +36,15 @@ public class DetailActivity extends AppCompatActivity {
         tvDate = findViewById(R.id.tvDate);
         tvSource = findViewById(R.id.tvSource);
         tvDesc = findViewById(R.id.tvDesc);
+        btUrl = findViewById(R.id.btUrl);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
 
         String title = intent.getStringExtra("title");
         String source = intent.getStringExtra("source");
         String author = intent.getStringExtra("author");
         String date = intent.getStringExtra("date");
-        String url = intent.getStringExtra("url");
+        final String url = intent.getStringExtra("url");
         String imageSource = intent.getStringExtra("imageSource");
         String description = intent.getStringExtra("description");
 
@@ -46,6 +52,16 @@ public class DetailActivity extends AppCompatActivity {
         tvDesc.setText(description);
         tvSource.setText(source);
         tvDate.setText(date);
+
+        btUrl.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(url));
+                startActivity(browserIntent);
+            }
+        });
+
 
         Picasso.with(DetailActivity.this).load(imageSource).into(imageView);
 
