@@ -22,13 +22,13 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@drawable/black_background"
-        android:columnCount="2"
+        android:columnCount="3"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:rowCount="2">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etQuery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -45,7 +45,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btSearch"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -54,6 +54,15 @@
             android:drawableRight="@drawable/ic_search_black_24dp"
             android:paddingRight="20dp" />
 
+        <Button
+            android:id="@+id/btFilter"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:background="@android:color/transparent"
+            android:drawableRight="@drawable/ic_filter_list_black_24dp"
+            android:paddingRight="20dp" />
     </GridLayout>
 
 

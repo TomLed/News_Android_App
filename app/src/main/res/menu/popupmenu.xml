@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/all"
+        android:title="A la une"/>
+
+    <item
+        android:id="@+id/GoogleNews"
+        android:title="Google News (France)"/>
+    <item
+        android:id="@+id/leMonde"
+        android:title="Le Monde"/>
+    <item
+        android:id="@+id/liberation"
+        android:title="Libération"/>
+    <item
+        android:id="@+id/equipe"
+        android:title="L'Equipe"/>
+    <item
+        android:id="@+id/echos"
+        android:title="Les Echos"/>
+
+</menu>
