@@ -80,6 +80,14 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.liberation:
                 Toast.makeText(this, "Source: Libération", Toast.LENGTH_SHORT).show();
                 sources = "liberation";
+                swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        retrieveJson(sources, "",country,API_KEY);
+                    }
+                });
+                retrieveJson(sources,etQuery.getText().toString(), country, API_KEY);
+                return true;
             case R.id.echos:
                 Toast.makeText(this, "Source: Les Echos", Toast.LENGTH_SHORT).show();
                 sources = "les-echos";
@@ -181,8 +189,9 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         if (!etQuery.getText().toString().equals("")){
             call = ApiCLient.getInstance().getApi().getSpecific(query,apiKey);
         }else{
-            if (!sources.equals(""))
-                call = ApiCLient.getInstance().getApi().getSource(sources,country, apiKey);
+            if (!sources.equals("")) {
+                call = ApiCLient.getInstance().getApi().getSource(sources, apiKey);
+            }
             else{
                 call = ApiCLient.getInstance().getApi().getHeadlines(country,apiKey);
             }

@@ -18,7 +18,6 @@ public interface ApiInterface {
     @GET("top-headlines")
     Call<Headlines> getSource(
             @Query("sources") String sources,
-            @Query("country") String country,
             @Query("apiKey") String apiKey
     );
 
