@@ -123,6 +123,11 @@
                     app:cardCornerRadius="10dp"
                     app:cardElevation="4dp">
 
+                    <ProgressBar
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/webViewProgress"/>
                     <WebView
                         android:id="@+id/webView"
                         android:layout_width="match_parent"

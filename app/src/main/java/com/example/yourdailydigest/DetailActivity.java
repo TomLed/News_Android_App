@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -22,7 +23,7 @@ public class DetailActivity extends AppCompatActivity {
     ImageView imageView;
     TextView tvTitle, tvSource, tvDate, tvDesc;
     Button btUrl;
-
+    ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,9 @@ public class DetailActivity extends AppCompatActivity {
         tvSource = findViewById(R.id.tvSource);
         tvDesc = findViewById(R.id.tvDesc);
         btUrl = findViewById(R.id.btUrl);
+
+        progress = findViewById(R.id.webViewProgress);
+        progress.setVisibility(View.VISIBLE);
 
         final Intent intent = getIntent();
 
@@ -71,5 +75,8 @@ public class DetailActivity extends AppCompatActivity {
         webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(url);
+        if (webView.isShown()){
+            progress.setVisibility(View.INVISIBLE);
+        }
     }
 }
