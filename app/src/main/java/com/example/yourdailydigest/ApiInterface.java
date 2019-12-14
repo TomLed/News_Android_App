@@ -23,7 +23,14 @@ public interface ApiInterface {
 
     @GET("everything")
     Call<Headlines> getSpecific(
-            @Query("q") String quer,
+            @Query("q") String query,
+            @Query("apiKey") String apiKey
+    );
+
+    @GET("everything")
+    Call<Headlines> getSpecificWithSource(
+            @Query("q") String query,
+            @Query("sources") String sources,
             @Query("apiKey") String apiKey
     );
 

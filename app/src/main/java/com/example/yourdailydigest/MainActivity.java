@@ -187,7 +187,12 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         Call<Headlines> call;
         if (!etQuery.getText().toString().equals("")){
-            call = ApiCLient.getInstance().getApi().getSpecific(query,apiKey);
+            if (!sources.equals("")) {
+                call = ApiCLient.getInstance().getApi().getSpecificWithSource(query, sources, apiKey);
+            }
+            else {
+                call = ApiCLient.getInstance().getApi().getSpecific(query, apiKey);
+            }
         }else{
             if (!sources.equals("")) {
                 call = ApiCLient.getInstance().getApi().getSource(sources, apiKey);
